@@ -22,19 +22,19 @@ currency-converter
 Para instalar y ejecutar la aplicación, sigue estos pasos:
 
 1. Clona el repositorio:
-   ```
-   git clone <URL_DEL_REPOSITORIO>
-   ```
+```
+git clone <URL_DEL_REPOSITORIO>
+```
 
 2. Navega al directorio del proyecto:
-   ```
-   cd currency-converter
-   ```
+```
+cd currency-converter
+```
 
 3. Instala las dependencias:
-   ```
-   npm install
-   ```
+```
+npm install
+```
 
 ## Ejecución
 
