@@ -12,13 +12,13 @@ function convertCurrency() {
     const toCurrency = document.getElementById('to-currency').value;
 
     if (amount === '' || isNaN(amount)) {
-        alert('Por favor, ingresa una cantidad válida');
+        alert('Please enter a valid amount');
         return;
     }
 
     const rate = exchangeRates[fromCurrency]?.[toCurrency];
     if (!rate) {
-        alert('Conversión no válida entre estas monedas');
+        alert('Invalid conversion between these currencies');
         return;
     }
 
