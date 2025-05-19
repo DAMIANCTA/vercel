@@ -1,0 +1,35 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validar HTML
+        uses: Cyb3r-Jak3/html5validator-action@v7
+        with:
+          root: ./
+
+      - name: Subir index.html como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: index-html
+          path: ./index.html
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./
+          prod: ${{ github.event_name == 'push' }}
